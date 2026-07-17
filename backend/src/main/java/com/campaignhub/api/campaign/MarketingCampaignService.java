@@ -24,7 +24,7 @@ public class MarketingCampaignService {
     private final EmeraldAccountService accountService;
 
     @Transactional
-    public CampaignDto createCampaign(UpdateCampaignCommand request) {
+    public CampaignDto createCampaign(CreateCampaignCommand request) {
         validateBidAgainstFund(request.bidAmount(), request.campaignFund());
 
         MarketingCampaign marketingCampaign = marketingCampaignMapper.toEntity(request);
@@ -34,7 +34,7 @@ public class MarketingCampaignService {
     }
 
     @Transactional
-    public CampaignDto updateCampaign(UUID id, CreateCampaignCommand request) {
+    public CampaignDto updateCampaign(UUID id, UpdateCampaignCommand request) {
         MarketingCampaign marketingCampaign = getCampaignById(id);
         BigDecimal oldFund = marketingCampaign.getCampaignFund();
 

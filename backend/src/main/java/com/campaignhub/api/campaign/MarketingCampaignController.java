@@ -30,18 +30,18 @@ public class MarketingCampaignController {
     private final MarketingCampaignService campaignService;
 
     @PostMapping
-    public ResponseEntity<CampaignDto> createCampaign(
-            @Valid @RequestBody UpdateCampaignCommand request) {
-        CampaignDto response = campaignService.createCampaign(request);
-        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    public ResponseEntity<CampaignDto> create(
+            @Valid @RequestBody CreateCampaignCommand command) {
+        CampaignDto result = campaignService.createCampaign(command);
+        return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<CampaignDto> updateCampaign(
+    public ResponseEntity<CampaignDto> update(
             @PathVariable UUID id,
-            @Valid @RequestBody CreateCampaignCommand request) {
-        CampaignDto response = campaignService.updateCampaign(id, request);
-        return ResponseEntity.ok(response);
+            @Valid @RequestBody UpdateCampaignCommand command) {
+        CampaignDto result = campaignService.updateCampaign(id, command);
+        return ResponseEntity.ok(result);
     }
 
     @GetMapping("/{id}")

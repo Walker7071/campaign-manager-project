@@ -8,6 +8,11 @@ import api from '../services/api';
 
 const KEYWORD_SUGGESTIONS = ['marketing', 'seo', 'ads', 'social-media', 'b2b', 'b2c', 'promocja', 'sprzedaż'];
 
+const TOWN_SUGGESTIONS = [
+  'Warszawa', 'Kraków', 'Łódź', 'Wrocław', 'Poznań',
+  'Gdańsk', 'Szczecin', 'Bydgoszcz', 'Lublin', 'Katowice'
+];
+
 const initialFormState = {
   campaignName: '', keywords: [], bidAmount: '', campaignFund: '',
   status: 'ON', town: '', radius: ''
@@ -88,9 +93,27 @@ const CampaignDrawerForm = ({ open, onClose, onSuccess, campaignData }) => {
           </TextField>
 
           <Box sx={{ display: 'flex', gap: 2 }}>
-            <TextField label="Miasto" name="town" value={formData.town} onChange={handleChange} required fullWidth />
-            <TextField label="Promień (km)" name="radius" type="number" value={formData.radius} onChange={handleChange} required fullWidth />
-          </Box>
+                      <Autocomplete
+                        freeSolo
+                        options={TOWN_SUGGESTIONS}
+                        value={formData.town || ''}
+                        onInputChange={(event, newInputValue) => {
+                          setFormData(prev => ({ ...prev, town: newInputValue }));
+                        }}
+                        sx={{ flex: 2 }}
+                        renderInput={(params) => <TextField {...params} label="Miasto" required fullWidth />}
+                      />
+
+                      <TextField
+                        label="Promień (km)"
+                        name="radius"
+                        type="number"
+                        value={formData.radius}
+                        onChange={handleChange}
+                        required
+                        sx={{ flex: 1 }}
+                      />
+                    </Box>
 
           <Box mt="auto" pt={3} display="flex" gap={2} justifyContent="flex-end">
             <Button onClick={onClose} color="inherit">Anuluj</Button>

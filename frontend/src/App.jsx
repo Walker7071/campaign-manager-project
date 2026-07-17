@@ -46,7 +46,7 @@ function App() {
         <Container maxWidth="lg">
 
           <Typography variant="h4" component="h1" gutterBottom sx={{ mb: 4, display: 'flex', alignItems: 'center', gap: 2 }}>
-            <span style={{ color: '#10b981' }}></span> Campaign Manager
+            <span style={{ color: '#10b981' }}></span> Campaign Hub
           </Typography>
 
           <EmeraldWalletOverview triggerUpdate={updateTrigger} />
