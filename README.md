@@ -7,7 +7,7 @@ Nowoczesna aplikacja **Full-Stack** do zarządzania kampaniami marketingowymi or
 
 ### Aplikacja została wdrożona w chmurze i jest gotowa do testów: https://campaign-manager-project.vercel.app
 
-**Ważna informacja:** Backend hostowany jest na darmowej platformie Render. Po 15 minutach braku aktywności serwer przechodzi w stan uśpienia. Pierwsze żądanie (np. wczytanie salda na start) więcej czasu. Gdy serwer się wybudzi, aplikacja powinna działać płynnie.
+**Ważna informacja:** Backend hostowany jest na darmowej platformie Render. Pierwsze żądanie (np. wczytanie salda na start) więcej czasu. Gdy serwer się wybudzi, aplikacja powinna działać płynnie.
 
 # Technologie
 
